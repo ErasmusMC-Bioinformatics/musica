@@ -4,6 +4,8 @@ channels:
   - defaults
   - r
 dependencies:
+  - gcc_linux-64
+  - gxx_linux-64
   - r=4.0
   - libgfortran
   - r-devtools

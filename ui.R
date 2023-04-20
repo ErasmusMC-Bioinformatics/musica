@@ -25,7 +25,7 @@ shinyUI(fluidPage(
 
    #Activation of Shiny js
    useShinyjs(),
-   shinyjs::extendShinyjs(text = "shinyjs.refresh = function() { location.reload(); }",functions="refresh"),
+   # shinyjs::extendShinyjs(text = "shinyjs.refresh = function() { location.reload(); }",functions="refresh"),
 
    #Title
    titlePanel(title=div(img(src="musica.png"),"\t\tMutational Signatures in Cancer"),windowTitle = "MuSiCa - Mutational Signatures in Cancer"),
@@ -46,7 +46,7 @@ shinyUI(fluidPage(
          hr(),
 
          #Genome selection
-         selectInput("genome","Reference genome",c("UCSC GRCh38/hg38"="hg38","UCSC GRCh37/hg19"="19","1000genomes hs37d5"="37"),selected="hg38"),
+         selectInput("genome","Reference genome",c("UCSC GRCh38/hg38"="hg38","UCSC GRCh37/hg19"="19","1000genomes hs37d5"="37"),selected="19"),
          hr(),
 
          #Type of Study
