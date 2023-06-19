@@ -11,17 +11,6 @@ library(plotly)
 now <- Sys.time()
 
 shinyServer(function(input, output,session){
-
-	#Adding execution time limit
-	observe({
-	    invalidateLater(900000) #Test every 15 mins
-	    print(paste("Actual Time: ", Sys.time(), " - Endtime: ", now + 10800))
-	    if (Sys.time() > now + 10800) { #3 hours maximum time
-	      print("Stop the App")
-	      stopApp()
-	    }
-	  })
-
    #Setting maximum file size for uploading (1000 MB)
    options(shiny.maxRequestSize=1000*1024^2)
    options(shiny.sanitize.errors = TRUE)
