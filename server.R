@@ -25,7 +25,7 @@ shinyServer(function(input, output,session){
 
 
    	if (input$datatype=="TSV" & ((length(grep(".tsv",input[["fileinput"]]$datapath)) + length(grep(".txt",input[["fileinput"]]$datapath)))==length(input[["fileinput"]]$datapath))){
-
+         
    		mat_list<-list()
    		for (w in 1:length(input[["fileinput"]]$datapath)){
    			mat <- fread(input[["fileinput"]]$datapath[w],header=T,sep="\t",data.table=F)
@@ -805,7 +805,7 @@ shinyServer(function(input, output,session){
       }
 
       heatmaply(a, scale_fill_gradient_fun = scale_fill_gradientn(colours = colorends, limits = c(0,1)),
-                dendrogram = dendro, k_row = 1, k_col = 1, column_text_angle = 90, distfun = 'pearson'  )
+                dendrogram = dendro, k_row = 1, k_col = 1, column_text_angle = 90, distfun = 'pearson', plot_method = "plotly"  )
    })
 
 
@@ -830,7 +830,7 @@ shinyServer(function(input, output,session){
 
           heatmaply(a, scale_fill_gradient_fun = scale_fill_gradientn(colours = colorends, limits = c(0,1)),
                     dendrogram = dendro, k_row = 1, k_col = 1, column_text_angle = 90, distfun = 'pearson',
-                    file = ff)
+                    file = ff, plot_method = "plotly")
 
        })
 
@@ -963,7 +963,7 @@ shinyServer(function(input, output,session){
 
       heatmaply(a, scale_fill_gradient_fun = scale_fill_gradientn(colours = colorends, limits = c(0,3)),
                 dendrogram = dendro, k_row = 1, k_col = 1, column_text_angle = 90, hide_colorbar = TRUE,
-                distfun = 'pearson')
+                distfun = 'pearson', plot_method = "plotly")
 
    })
 
@@ -1003,7 +1003,7 @@ shinyServer(function(input, output,session){
            heatmaply(a, scale_fill_gradient_fun = scale_fill_gradientn(colours = colorends, limits = c(0,3)),
                      dendrogram = dendro, k_row = 1, k_col = 1, column_text_angle = 90, hide_colorbar = TRUE,
                      distfun = 'pearson',
-                     file = ff)
+                     file = ff, plot_method = "plotly")
 
       })
 
